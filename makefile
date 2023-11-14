@@ -50,7 +50,7 @@ amot:
 	mv -f $(AMOTFILE_TEMP) $(AMOTFILE)
 
 	# Grant execution permission.
-	chmod 777 $(AMOTFILE)
+	chmod +rx $(AMOTFILE)
 
 .PHONY: clean
 
