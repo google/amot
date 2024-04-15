@@ -10,7 +10,7 @@ Out of the box, amot provides some reasonable defaults you may want to use for n
 
 https://github.com/google/amot/assets/126256142/a7944a83-5cc0-495a-9c62-631689e95326
 
-But those are just defaults. You can bind any key to a keyevent or string.
+But those are just defaults. You can bind any key to a keycode or string.
 
 https://github.com/google/amot/assets/126256142/63ae62e1-9681-452d-b930-fc2d9fbef553
 
