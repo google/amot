@@ -6,6 +6,22 @@ amot is a zsh CLI tool for controlling an Android device through key inputs. It 
 ### Motivation
 There are many ways to control Android devices from an ADB-attached device, but all the solutions I've found are heavy-weight and missing critical features. amot strives to be lightweight, portable (within zsh, at least), and easily configurable for any specific use-case.
 
+Out of the box, amot provides some reasonable defaults you may want to use for navigation, and automatically recognizes attempts to input text.
+
+https://github.com/google/amot/assets/126256142/a7944a83-5cc0-495a-9c62-631689e95326
+
+But those are just defaults. You can bind any key to a keyevent or string.
+
+https://github.com/google/amot/assets/126256142/63ae62e1-9681-452d-b930-fc2d9fbef553
+
+amot even provides the capability to bind arbitrary adb shell commands.
+
+https://github.com/google/amot/assets/126256142/76b0a86e-2eb7-4cd9-ba0c-990228d7cccf
+
+As you bind the keys and assign the commands you use most frequently, amot becomes a control panel for Android that you can flick open and seamlessly execute complex strings of commands.
+
+https://github.com/google/amot/assets/126256142/e2430432-c83e-4cc1-be19-1fcc5b352906
+
 ### Dependencies
 
 `amot` currently functions on Ubuntu Linux and Mac on zsh. It requires a local installation of `fzf` and `adb`.
