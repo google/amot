@@ -23,7 +23,9 @@ __write_vared_prompt() {
 	__pop_stack
 
 	__print_status_bar
-	vared -M emacs -e -p $'   \e[0;1mWrite Mode\033[0m\t\e[0;32mText:\033[0m ' -c write_mode_input
+
+	# Mac has an error that I can't parse using the emacs keymap, so I've muted it.
+	vared -M emacs -e -p $'   \e[0;1mWrite Mode\033[0m\t\e[0;32mText:\033[0m ' -c write_mode_input 2> /dev/null
 
 	ui_stack+=('vared_prompt')
 }

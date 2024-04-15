@@ -9,7 +9,7 @@ all: amot
 
 .PHONY: amot
 
-amot: 
+amot:
 	mkdir -p $(OUTDIR)
 	echo "" > $(AMOTFILE)
 
@@ -40,7 +40,11 @@ amot:
 	cat $(SRCDIR)/execution_loop.sh >> "$(AMOTFILE)"
 
 	# Remove comments/shebangs.
-	sed -i -e '/^[ \t]*#/d' "$(AMOTFILE)"
+	if [ "$(shell uname -s)" = "Darwin" ]; then\
+		sed -e '/^[ \t]*\#/d' "$(AMOTFILE)";\
+	else\
+		sed -i -e '/^[ \t]*\#/d' "$(AMOTFILE)";\
+	fi
 
 	# Add one shebang and the copyright notice.
 	# We need a temp file since cat can't do it in-place.

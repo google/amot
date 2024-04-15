@@ -48,7 +48,12 @@ __amot_unbind_mode() {
 			"${ansi_green}$composite_hex_key${ansi_end}" \
 			"${ansi_yellow}UNBOUND${ansi_end}"
 
-		sed -i "s/$composite_hex_key.*//g" $key_map_file_name
+		# This is required because Mac `sed` is not standard.
+		if [ "$(uname)" = "Darwin" ]; then
+			sed -i '' "s/$composite_hex_key.*//g" $key_map_file_name
+		else
+			sed -i "s/$composite_hex_key.*//g" $key_map_file_name
+		fi
 	else
 		__write_formatted_output "$(date +"%H:%M:%S")" \
 			"${ansi_bold}Unbind${ansi_end}" \

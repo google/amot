@@ -125,7 +125,12 @@ __amot_get_key_to_bind() {
 			"y/${ansi_bold}N${ansi_end}"
 
 		if read -sq; then
-			sed -i "s/$composite_hex_key.*//g" $key_map_file_name
+			# This is required because Mac `sed` is not standard.
+			if [ "$(uname)" = "Darwin" ]; then
+				sed -i '' "s/$composite_hex_key.*//g" $key_map_file_name
+			else
+				sed -i "s/$composite_hex_key.*//g" $key_map_file_name
+			fi
 		else
 			local ret=1
 		fi

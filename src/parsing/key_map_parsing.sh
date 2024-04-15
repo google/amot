@@ -58,5 +58,11 @@ __amot_initialize_key_map() {
 
 	# Keep the file human readable.
 	sort -o $key_map_file_name $key_map_file_name
-	sed -i '/^$/d' $key_map_file_name
+
+	# This is required because Mac `sed` is not standard.
+	if [ "$(uname)" = "Darwin" ]; then
+		sed -i '' '/^$/d' $key_map_file_name
+	else
+		sed -i '/^$/d' $key_map_file_name
+	fi
 }
